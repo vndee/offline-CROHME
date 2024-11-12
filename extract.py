@@ -39,11 +39,11 @@ if __name__ == "__main__":
 
     for fileInkml in listFiles:
         cnt = cnt + 1
-        fileName = fileInkml.split('/')[1]
+        fileName = fileInkml.split('\\')[1]
         print("Processing %s [%d/%d]" % (fileName, cnt, numberOfFile))
         writeLog("[" + str(cnt) + "/" + str(numberOfFile) + "]" + "Processed " + fileInkml + " --> " + targetFolder + fileName + ".png")
         try:
-            inkml2img.inkml2img(fileInkml, targetFolder + fileName + '.png')
+            inkml2img.inkml2img(fileInkml, targetFolder + fileName.split('.')[0] + '.png')
         except:
             writeLog("Failed!")
             print("An error occured!")
